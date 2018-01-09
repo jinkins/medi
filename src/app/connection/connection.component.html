@@ -1,0 +1,55 @@
+<div class="col-sm-12">
+  <h4 class="display-4">List of connections </h4>
+  <form [formGroup]="searchForm" >
+  <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">LIFNR</span>
+              <input type="text" class="form-control" placeholder="LIFNR" formControlName="lifnr">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Name</span>
+              <input type="text" class="form-control" placeholder="Name" formControlName="name">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">GLN</span>
+              <input type="text" class="form-control" placeholder="GLN" formControlName="gln">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">TP</span>
+              <input type="text" class="form-control" placeholder="TP" formControlName="partner">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Activation date</span>
+              <input type="text" class="form-control" placeholder="Activation" formControlName="activationDate">
+            </div>
+          </th>
+          <th>
+            <a class="btn btn-success" (click)="onSearch()"> <i class="fa fa-search"  style="color:white" aria-hidden="true"></i> </a>
+          </th>
+        </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let con of connections">
+        <th scope="row">{{ con.lifnr }}</th>
+        <td>{{con.name}}</td>
+        <td>{{con.gln}}</td>
+        <td>{{con.partner}}</td>
+        <td>{{con.activationDate | date: 'dd/MM/yyyy'}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</div>
