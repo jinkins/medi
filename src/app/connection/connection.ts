@@ -10,7 +10,9 @@ export class Connection {
         this.tp = data.type;
         this.x400 = data.x400;
         this.activationDate = data.activationDate;
+        this.creationDate = data.creationDate; 
         this.actif = data.actif;
+        this.copy = data.copy; 
     }
 
     private id: number;
@@ -19,7 +21,9 @@ export class Connection {
     private tp: TP;
     private x400: X400;
     private activationDate: Date;
+    private creationDate: Date;
     private actif: boolean;
+    private copy: string; 
 }
 
 /* 
