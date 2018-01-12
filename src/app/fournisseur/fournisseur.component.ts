@@ -14,8 +14,8 @@ export class FournisseurComponent implements OnInit {
 
   constructor(private fs: FournisseurService, private fb: FormBuilder, private router: Router) { }
 
-  private suppliers: Fournisseur[];
-  private searchForm: FormGroup;
+  public suppliers: Fournisseur[];
+  public searchForm: FormGroup;
 
   ngOnInit() {
     this.fs.getSuppliers().subscribe(

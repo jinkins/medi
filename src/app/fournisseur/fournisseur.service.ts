@@ -2,6 +2,7 @@ import { Fournisseur } from './fournisseur';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class FournisseurService {
@@ -9,7 +10,7 @@ export class FournisseurService {
 
     getSuppliers() {
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.httpClient.get<Fournisseur[]>('http://localhost:8080/suppliers' + token);
+        return this.httpClient.get<Fournisseur[]>(environment.url + 'suppliers' + token);
     }
 
     search(filters: string[]) {

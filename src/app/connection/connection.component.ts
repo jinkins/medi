@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class ConnectionComponent implements OnInit {
 
-  private connections: Connection[] = [];
+  public connections: Connection[] = [];
 
-  private searchForm: FormGroup;
+  public searchForm: FormGroup;
 
   constructor(private cs: ConnectionService, private fb: FormBuilder, private router:Router) { }
 
