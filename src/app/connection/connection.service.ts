@@ -15,13 +15,14 @@ export class ConnectionService {
     }
 
     searchConnection(filters: string[]) {
-        let r = {};
-        for (let key in filters) {
-            if (filters[key]) {
-                r[key] = filters[key];
+            let r = {};
+            for (let key in filters) {
+                if (filters[key]) {
+                    r[key] = filters[key];
+                }
             }
-        }
-
-        console.log(r);
+            console.log(filters);
+            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+            return this.httpClient.post<Connection[]>('http://localhost:8080/connections/search' + token, r);
     }
 }

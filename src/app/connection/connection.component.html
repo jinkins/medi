@@ -1,21 +1,12 @@
 <div class="col-sm-12">
   <h4 class="display-4">List of connections </h4>
+  <div class="alert alert-primary" role="alert">
+    Number of records in your query : {{ connections.length }}
+  </div>
   <form [formGroup]="searchForm" >
   <table class="table table-bordered table-striped">
     <thead>
         <tr>
-          <th>
-            <div class="input-group">
-              <span class="input-group-addon">LIFNR</span>
-              <input type="text" class="form-control" placeholder="LIFNR" formControlName="lifnr">
-            </div>
-          </th>
-          <th>
-            <div class="input-group">
-              <span class="input-group-addon">Name</span>
-              <input type="text" class="form-control" placeholder="Name" formControlName="name">
-            </div>
-          </th>
           <th>
             <div class="input-group">
               <span class="input-group-addon">GLN</span>
@@ -24,14 +15,26 @@
           </th>
           <th>
             <div class="input-group">
-              <span class="input-group-addon">TP</span>
-              <input type="text" class="form-control" placeholder="TP" formControlName="partner">
+              <span class="input-group-addon">Partner</span>
+              <input type="text" class="form-control" placeholder="Partner" formControlName="tp">
             </div>
           </th>
           <th>
             <div class="input-group">
-              <span class="input-group-addon">Activation date</span>
-              <input type="text" class="form-control" placeholder="Activation" formControlName="activationDate">
+              <span class="input-group-addon">Message</span>
+              <input type="text" class="form-control" placeholder="Message" formControlName="message">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Copy</span>
+              <input type="text" class="form-control" placeholder="Copy" formControlName="copy">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Last Update</span>
+              <input type="text" class="form-control" placeholder="Modification Date" formControlName="modate">
             </div>
           </th>
           <th>
@@ -42,11 +45,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let con of connections">
-        <th scope="row">{{ con.lifnr }}</th>
-        <td>{{con.name}}</td>
-        <td>{{con.gln}}</td>
-        <td>{{con.partner}}</td>
-        <td>{{con.activationDate | date: 'dd/MM/yyyy'}}</td>
+        <th scope="row">{{ con.gln }}</th>
+        <td>{{con.tp}}</td>
+        <td>{{con.message}}</td>
+        <td>{{con.copy}}</td>
+        <td>{{con.modate | date: 'dd/MM/yyyy'}}</td>
         <td></td>
       </tr>
     </tbody>
