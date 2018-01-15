@@ -1,4 +1,4 @@
-import { X400 } from './x400';
+import { X400 } from './x400/x400';
 import { TP } from './tp';
 
 export class Connection {

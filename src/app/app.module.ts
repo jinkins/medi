@@ -16,6 +16,7 @@ import { LoginService } from './login/login.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import { DemandComponent } from './demand/demand.component';
+import { X400Component } from './connection/x400/x400.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DemandComponent } from './demand/demand.component';
     ConnectionComponent,
     LoginComponent,
     FournisseurComponent,
-    DemandComponent
+    DemandComponent,
+    X400Component
   ],
   imports: [
     BrowserModule,
