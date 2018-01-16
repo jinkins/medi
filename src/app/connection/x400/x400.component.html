@@ -1,3 +1,74 @@
-<p>
-  x400 works!
-</p>
+<div class="col-sm-12">
+  <h4 class="display-4">List of X400 connections </h4>
+  <div class="alert alert-primary" role="alert">
+    Number of records in your query : {{ x400s.length }}
+  </div>
+  <form [formGroup]="searchForm">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">GLN</span>
+              <input type="text" class="form-control" placeholder="GLN" formControlName="gln">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">C</span>
+              <input type="text" class="form-control" placeholder="C" formControlName="c">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">A</span>
+              <input type="text" class="form-control" placeholder="A" formControlName="admd">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">P</span>
+              <input type="text" class="form-control" placeholder="P" formControlName="prmd">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">O</span>
+              <input type="text" class="form-control" placeholder="O" formControlName="o">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">G</span>
+              <input type="text" class="form-control" placeholder="G" formControlName="g">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">G</span>
+              <input type="text" class="form-control" placeholder="S" formControlName="s">
+            </div>
+          </th>
+          <th>
+            <a class="btn btn-success" (click)="onSearch()">
+              <i class="fa fa-search" style="color:white" aria-hidden="true"></i>
+            </a>
+          </th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let x400 of x400s">
+            <th scope="row">{{ x400.gln }}</th>
+          <th>{{ x400.c }}</th>
+          <td>{{x400.admd}}</td>
+          <td>{{x400.prmd}}</td>
+          <td>{{x400.o}}</td>
+          <td>{{x400.g }}</td>
+          <td>{{x400.s }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

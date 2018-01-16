@@ -1,3 +1,4 @@
+import { X400Service } from './connection/x400/x400.service';
 import { FournisseurService } from './fournisseur/fournisseur.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -36,7 +37,7 @@ import { X400Component } from './connection/x400/x400.component';
     ReactiveFormsModule,
     NgbModule.forRoot()
   ],
-  providers: [ConnectionService, LoginService, FournisseurService, AuthGuard],
+  providers: [ConnectionService, LoginService, FournisseurService, X400Service, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

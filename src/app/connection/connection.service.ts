@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Connection } from './connection';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ConnectionService {
@@ -24,6 +24,6 @@ export class ConnectionService {
             }
             console.log(filters);
             const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-            return this.httpClient.post<Connection[]>('http://localhost:8080/connections/search' + token, r);
+            return this.httpClient.post<Connection[]>(environment.url + 'connections/search' + token, r);
     }
 }
