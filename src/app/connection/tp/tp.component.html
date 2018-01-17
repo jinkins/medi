@@ -1,0 +1,60 @@
+<div class="col-sm-12">
+  <h4 class="display-4">List of TPs </h4>
+  <div class="alert alert-primary" role="alert">
+    Number of records in your query : {{ tps.length }}
+  </div>
+  <form [formGroup]="searchForm">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">ID</span>
+              <input type="text" class="form-control" placeholder="ID" formControlName="id">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Name </span>
+              <input type="text" class="form-control" placeholder="Name" formControlName="name">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">Type</span>
+              <input type="text" class="form-control" placeholder="Type" formControlName="type">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">AS2 ID</span>
+              <input type="text" class="form-control" placeholder="AS2 ID" formControlName="as2id">
+            </div>
+          </th>
+          <th>
+            <div class="input-group">
+              <span class="input-group-addon">AS2 Url</span>
+              <input type="text" class="form-control" placeholder="AS2 Url" formControlName="as2url">
+            </div>
+          </th>
+          <th>
+            <a class="btn btn-success" (click)="onSearch()">
+              <i class="fa fa-search" style="color:white" aria-hidden="true"></i>
+            </a>
+          </th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let tp of tps">
+          <th scope="row">{{ tp.id }}</th>
+          <th>{{ tp.name }}</th>
+          <td>{{ tp.type }}</td>
+          <td>{{ tp.as2id }}</td>
+          <td>{{ tp.as2url }}</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

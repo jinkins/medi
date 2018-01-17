@@ -2,18 +2,18 @@ import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { X400 } from './x400';
+import { TP } from './tp';
 
 @Injectable()
-export class X400Service {
+export class TPService {
     constructor(private httpClient: HttpClient) { }
 
-    getAllX400() {
+    getTPs() {
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.httpClient.get<X400[]>(environment.url + 'x400' + token);
+        return this.httpClient.get<TP[]>(environment.url + 'tp' + token);
     }
 
-    searchX400(filters: string[]) {
+    searchTP(filters: string[]) {
         let r = {};
         for (let key in filters) {
             if (filters[key]) {
@@ -22,6 +22,6 @@ export class X400Service {
         }
         console.log(filters);
         const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-        return this.httpClient.post<X400[]>(environment.url + 'x400/search' + token, r);
+        return this.httpClient.post<TP[]>(environment.url + 'tp/search' + token, r);
     }
 }
