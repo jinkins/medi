@@ -14,8 +14,8 @@ export class X400Component implements OnInit {
 
   constructor(private xs: X400Service, private router: Router, private fb: FormBuilder) { }
 
-  private x400s: X400[] = [];
-  private searchForm: FormGroup;
+  x400s: X400[] = [];
+  searchForm: FormGroup;
 
   ngOnInit() {
     this.xs.getAllX400().subscribe(

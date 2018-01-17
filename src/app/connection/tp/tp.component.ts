@@ -13,8 +13,8 @@ export class TpComponent implements OnInit {
 
   constructor(private ts: TPService , private router: Router, private fb: FormBuilder) { }
 
-  private tps: TP[] = [];
-  private searchForm: FormGroup;
+  tps: TP[] = [];
+  searchForm: FormGroup;
 
   ngOnInit() {
     this.ts.getTPs().subscribe(
