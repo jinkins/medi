@@ -1,5 +1,5 @@
 import { X400 } from './x400/x400';
-import { TP } from './tp';
+import { TP } from './tp/tp';
 
 export class Connection {
 
@@ -10,9 +10,9 @@ export class Connection {
         this.tp = data.tp;
         this.x400 = data.x400;
         this.modate = data.modate;
-        this.credat = data.credat; 
+        this.credat = data.credat;
         this.actif = data.actif;
-        this.copy = data.copy; 
+        this.copy = data.copy;
     }
 
     private id: number;
@@ -23,5 +23,5 @@ export class Connection {
     private modate: Date;
     private credat: Date;
     private actif: boolean;
-    private copy: string; 
+    private copy: string;
 }

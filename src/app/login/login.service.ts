@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { User } from './user'; 
-import { environment } from '../../environments/environment.prod';
+import { User } from './user';
+import { environment } from '../../environments/environment';
 
 
 @Injectable()

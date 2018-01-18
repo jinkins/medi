@@ -1,3 +1,4 @@
+import { X400Service } from './connection/x400/x400.service';
 import { FournisseurService } from './fournisseur/fournisseur.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,8 @@ import { AuthGuard } from './shared/auth-guard.service';
 import { FournisseurComponent } from './fournisseur/fournisseur.component';
 import { DemandComponent } from './demand/demand.component';
 import { X400Component } from './connection/x400/x400.component';
-
+import { TpComponent } from './connection/tp/tp.component';
+import { TPService } from './connection/tp/tp.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { X400Component } from './connection/x400/x400.component';
     LoginComponent,
     FournisseurComponent,
     DemandComponent,
-    X400Component
+    X400Component,
+    TpComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { X400Component } from './connection/x400/x400.component';
     ReactiveFormsModule,
     NgbModule.forRoot()
   ],
-  providers: [ConnectionService, LoginService, FournisseurService, AuthGuard],
+  providers: [ConnectionService, LoginService, FournisseurService, X400Service, TPService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
