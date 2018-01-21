@@ -20,6 +20,8 @@ import { DemandComponent } from './demand/demand.component';
 import { X400Component } from './connection/x400/x400.component';
 import { TpComponent } from './connection/tp/tp.component';
 import { TPService } from './connection/tp/tp.service';
+import { ShowAllConnectionsComponent } from './connection/show-all-connections/show-all-connections.component';
+import { SearchConnectionsComponent } from './connection/search-connections/search-connections.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { TPService } from './connection/tp/tp.service';
     FournisseurComponent,
     DemandComponent,
     X400Component,
-    TpComponent
+    TpComponent,
+    ShowAllConnectionsComponent,
+    SearchConnectionsComponent
   ],
   imports: [
     BrowserModule,
