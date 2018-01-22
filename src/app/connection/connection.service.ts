@@ -16,14 +16,27 @@ export class ConnectionService {
     }
 
     searchConnection(filters: string[]) {
-            let r = {};
-            for (let key in filters) {
-                if (filters[key]) {
-                    r[key] = filters[key];
-                }
+        let r = {};
+        for (const key in filters) {
+            if (filters[key]) {
+                r[key] = filters[key];
             }
-            console.log(filters);
-            const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-            return this.httpClient.post<Connection[]>(environment.url + 'connections/search' + token, r);
+        }
+        console.log(filters);
+        const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+        return this.httpClient.post<Connection[]>(environment.url + 'connections/search' + token, r);
+    }
+
+    findConnection(filters: string[]) {
+        let r = '';
+        for (const key in filters) {
+            if (filters[key]) {
+                r += '&' + key + '=' + filters[key];
+            }
+        }
+
+        console.log(filters);
+        const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+        return this.httpClient.get<Connection[]>(environment.url + 'connections/find' + token + r);
     }
 }

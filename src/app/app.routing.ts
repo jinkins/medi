@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
     { path: 'x400', component: X400Component, canActivate: [AuthGuard]},
     { path: 'tp', component: TpComponent, canActivate: [AuthGuard]},
     { path: '',
-      redirectTo: '/connections',
+      redirectTo: '/connections/showAll',
       pathMatch: 'full'
     }
   ];

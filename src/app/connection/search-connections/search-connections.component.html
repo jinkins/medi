@@ -1,89 +1,76 @@
 <div class="container-fluid">
-  <div class="card-deck">
+  <form [formGroup]="searchForm">
+    <div class="card-deck">
 
-    <!-- Suppliers -->
+      <!-- Suppliers -->
 
-    <div class="card">
-      <div class="card-header bg-warning text-white">
-        Search based on suppliers
-      </div>
-      <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-addon">LIFNR</span>
-          <input type="text" class="form-control" placeholder="Supplier's SAP Number" name="lifnr">
+      <div class="card">
+        <div class="card-header bg-warning text-white">
+          Search based on suppliers
         </div>
-        <div class="input-group">
-          <span class="input-group-addon">Name</span>
-          <input type="text" class="form-control" placeholder="Supplier's name" name="name">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">GLN</span>
-          <input type="text" class="form-control" placeholder="Supplier's GLN" name="gln">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">TVA</span>
-          <input type="text" class="form-control" placeholder="Supplier's TVA" name="tva">
-        </div>
-      </div>
-    </div>
-
-    <!-- Connections criteria -->
-
-    <div class="card">
-      <div class="card-header bg-primary text-white">
-        Search based on connection
-      </div>
-      <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-addon">TP</span>
-          <input type="text" class="form-control" placeholder="Trading Partner" name="tp">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">AS2ID</span>
-          <input type="text" class="form-control" placeholder="Supplier's name" name="name">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">AS2Url</span>
-          <input type="text" class="form-control" placeholder="Supplier's GLN" name="gln">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">C</span>
-          <input type="text" class="form-control" placeholder="X400 C" name="tva">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">ADMD</span>
-          <input type="text" class="form-control" placeholder="X400 ADMD" name="tva">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">PRMD</span>
-          <input type="text" class="form-control" placeholder="X400 PRMD" name="tva">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">S</span>
-          <input type="text" class="form-control" placeholder="X400 S" name="s">
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-addon">LIFNR</span>
+            <input type="text" class="form-control" placeholder="Supplier's SAP Number" name="lifnr" formControlName="lifnr">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Name</span>
+            <input type="text" class="form-control" placeholder="Supplier's name" name="name" formControlName="name">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">GLN</span>
+            <input type="text" class="form-control" placeholder="Supplier's GLN" name="gln" formControlName="gln">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">TVA</span>
+            <input type="text" class="form-control" placeholder="Supplier's TVA" name="tva" formControlName="tva">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="card-header bg-info text-white">
-        Search based on demand
-      </div>
-      <div class="card-body">
-        <div class="input-group">
-          <span class="input-group-addon">ARS</span>
-          <input type="text" class="form-control" placeholder="ARS number of the demand" name="ars">
+      <!-- Connections criteria -->
+
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Search based on connection
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-addon">TP</span>
+            <input type="text" class="form-control" placeholder="Trading Partner" name="tp" formControlName="tpName">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">AS2ID</span>
+            <input type="text" class="form-control" placeholder="AS2 ID" name="as2id" formControlName="as2id">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">AS2Url</span>
+            <input type="text" class="form-control" placeholder="AS2 URL" name="as2url" formControlName="as2url">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">C</span>
+            <input type="text" class="form-control" placeholder="X400 C" name="c" formControlName="c">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">ADMD</span>
+            <input type="text" class="form-control" placeholder="X400 ADMD" name="admd" formControlName="admd">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">PRMD</span>
+            <input type="text" class="form-control" placeholder="X400 PRMD" name="prmd" formControlName="prmd">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">S</span>
+            <input type="text" class="form-control" placeholder="X400 S" name="s" formControlName="s">
+          </div>
         </div>
       </div>
     </div>
+    <!-- end of card's deck -->
 
-  </div>
-  <!-- end of card's deck -->
+    <button type="button" class="btn btn-primary btn-lg btn-block my-3" (click)="onSearch()">Search</button>
 
-  <button type="button" class="btn btn-primary btn-lg btn-block my-3">Search</button>
-
-
-
+  </form>
 
 
 
