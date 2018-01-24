@@ -5,11 +5,11 @@ export class Fournisseur {
     private tva: string;
     private lang: string;
 
-    constructor(l, name, gln, tva, lang, email) {
-        this.lifnr = l;
-        this.name = name;
-        this.gln = gln;
-        this.tva = tva;
-        this.lang = lang;
+    constructor(obj) {
+        this.lifnr = obj.lifnr;
+        this.name = obj.supName;
+        this.gln = obj.gln;
+        this.tva = obj.tva;
+        this.lang = obj.lang;
     }
 }

@@ -1,13 +1,13 @@
 export class TP {
-    private type: string;
-    private name: string;
-    private url: string;
-    private as2id: string;
+    public type: string;
+    public name: string;
+    public as2url: string;
+    public as2id: string;
 
-    constructor(t, n, u, a) {
-        this.type = t;
-        this.name = n;
-        this.url = u;
-        this.as2id = a;
+    constructor(obj) {
+        this.type = obj.typeCon;
+        this.name = obj.name;
+        this.as2url = obj.as2url;
+        this.as2id = obj.as2id;
     }
 }

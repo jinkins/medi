@@ -15,11 +15,11 @@
           </div>
           <div class="input-group">
             <span class="input-group-addon">Name</span>
-            <input type="text" class="form-control" placeholder="Supplier's name" name="name" formControlName="name">
+            <input type="text" class="form-control" placeholder="Supplier's name" name="name" formControlName="suppliers.name">
           </div>
           <div class="input-group">
             <span class="input-group-addon">GLN</span>
-            <input type="text" class="form-control" placeholder="Supplier's GLN" name="gln" formControlName="gln">
+            <input type="text" class="form-control" placeholder="Supplier's GLN" name="gln" formControlName="connections.gln">
           </div>
           <div class="input-group">
             <span class="input-group-addon">TVA</span>
@@ -37,7 +37,10 @@
         <div class="card-body">
           <div class="input-group">
             <span class="input-group-addon">TP</span>
-            <input type="text" class="form-control" placeholder="Trading Partner" name="tp" formControlName="tpName">
+            <select class="form-control" formControlName="tpName">
+              <option value="">(Empty)</option>
+              <option [value]="tp.tpName" *ngFor="let tp of tps">{{tp.tpName}}</option>
+            </select>
           </div>
           <div class="input-group">
             <span class="input-group-addon">AS2ID</span>
@@ -71,8 +74,25 @@
     <button type="button" class="btn btn-primary btn-lg btn-block my-3" (click)="onSearch()">Search</button>
 
   </form>
+  <hr/>
+  <h2>Results</h2>
 
-
-
+  <div class="card-columns" *ngIf="connections">
+    <div class="card" *ngFor="let c of connections">
+      <div [class]="getCardStyle(c.actif)">
+        Connection {{c.id}}
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item"><b>GLN : </b>&nbsp;{{ c.gln }}</li>
+              <li class="list-group-item"><b>Message : </b>&nbsp;{{ c.message }}</li>
+              <li class="list-group-item"><b>TP : </b>&nbsp;{{ c.tp.name }}</li>
+              <li class="list-group-item"><b>Date de dernière : </b>&nbsp;{{ c.modate | date: 'dd/MM/yyyy' }}</li>
+              <li class="list-group-item"><b>Connection : </b>&nbsp;{{ displayTPCon(c)  }}</li>
+              <li class="list-group-item"><b>Suppliers : </b>&nbsp;{{ c.suppliers.name  }}</li>
+            </ul>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- container -->
