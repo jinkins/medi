@@ -75,22 +75,31 @@
 
   </form>
   <hr/>
-  <h2>Results</h2>
-
-  <div class="card-columns" *ngIf="connections">
+  <h2>Results {{ connections ? connections.length : '' }}</h2>
+  <div [class]="styleDeckOrColumn()" *ngIf="connections">
     <div class="card" *ngFor="let c of connections">
       <div [class]="getCardStyle(c.actif)">
         Connection {{c.id}}
       </div>
       <div class="card-body">
-          <ul class="list-group">
-              <li class="list-group-item"><b>GLN : </b>&nbsp;{{ c.gln }}</li>
-              <li class="list-group-item"><b>Message : </b>&nbsp;{{ c.message }}</li>
-              <li class="list-group-item"><b>TP : </b>&nbsp;{{ c.tp.name }}</li>
-              <li class="list-group-item"><b>Date de dernière : </b>&nbsp;{{ c.modate | date: 'dd/MM/yyyy' }}</li>
-              <li class="list-group-item"><b>Connection : </b>&nbsp;{{ displayTPCon(c)  }}</li>
-              <li class="list-group-item"><b>Suppliers : </b>&nbsp;{{ c.suppliers.name  }}</li>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <b>GLN : </b>&nbsp;{{ c.gln }}</li>
+          <li class="list-group-item">
+            <b>Message : </b>&nbsp;{{ c.message }}</li>
+          <li class="list-group-item">
+            <b>TP : </b>&nbsp;{{ c.tp.name }}</li>
+          <li class="list-group-item">
+            <b>Date de dernière : </b>&nbsp;{{ c.modate | date: 'dd/MM/yyyy' }}</li>
+          <li class="list-group-item">
+            <b>Connection : </b>&nbsp;{{ c.displayTPCon() }}</li>
+          <li class="list-group-item">
+            <b>Suppliers : </b>&nbsp;
+            <ul>
+              <li *ngFor="let s of c.suppliers">{{ s.name }} ({{ s.lifnr }})</li>
             </ul>
+            </li>
+        </ul>
       </div>
     </div>
   </div>

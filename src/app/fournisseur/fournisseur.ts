@@ -7,7 +7,12 @@ export class Fournisseur {
 
     constructor(obj) {
         this.lifnr = obj.lifnr;
-        this.name = obj.supName;
+        if(obj.supName) {
+            this.name = obj.supName;
+        } else {
+            this.name = obj.name;
+        }
+        
         this.gln = obj.gln;
         this.tva = obj.tva;
         this.lang = obj.lang;

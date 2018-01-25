@@ -10,8 +10,8 @@ export class Connection {
         this.message = data.message;
         this.tp = data.tp == null ? null : new TP(data.tp);
         this.x400 = data.x400 == null ? null : new X400(data.x400);
-        this.modate = data.modate;
-        this.credat = data.credat;
+        this.modate = new Date(data.modate);
+        this.credat = new Date(data.credat);
         this.actif = data.actif;
         this.copy = data.copy;
         
@@ -34,7 +34,7 @@ export class Connection {
     private suppliers: Fournisseur[] = [];
 
     public displayTPCon() {
-        if(this.x400) {
+        if(this.x400.c == null) {
             return "C="+this.x400.c + "/A="+this.x400.admd+"/P="+this.x400.prmd+"/O="+this.x400.o+"/S="+this.x400.s;
         } else {
             return "AS2 = " + this.tp.as2id + " AS2 url = " + this.tp.as2url;

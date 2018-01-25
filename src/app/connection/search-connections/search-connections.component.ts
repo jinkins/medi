@@ -54,6 +54,7 @@ export class SearchConnectionsComponent implements OnInit {
   onSearch() {
     this.cs.findConnection(this.searchForm.value).subscribe(
       data => {
+        console.log(data);
         this.connections = [];
         data.forEach((e) => {
           this.connections.push(new Connection(e));
@@ -82,6 +83,14 @@ export class SearchConnectionsComponent implements OnInit {
 
   displayTPCon(c:Connection){
     return c.displayTPCon(); 
+  }
+
+  styleDeckOrColumn() {
+    if(this.connections && this.connections.length > 4) {
+      return 'card-columns';
+    } else {
+      return 'card-deck';
+    }
   }
   
 
