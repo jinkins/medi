@@ -22,6 +22,7 @@ import { TpComponent } from './connection/tp/tp.component';
 import { TPService } from './connection/tp/tp.service';
 import { ShowAllConnectionsComponent } from './connection/show-all-connections/show-all-connections.component';
 import { SearchConnectionsComponent } from './connection/search-connections/search-connections.component';
+import { EditConnectionComponent } from './connection/edit-connection/edit-connection.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SearchConnectionsComponent } from './connection/search-connections/sear
     X400Component,
     TpComponent,
     ShowAllConnectionsComponent,
-    SearchConnectionsComponent
+    SearchConnectionsComponent,
+    EditConnectionComponent
   ],
   imports: [
     BrowserModule,

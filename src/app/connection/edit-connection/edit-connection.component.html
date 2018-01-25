@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Edit connection</h2>
+  <form>
+    <div class="card-deck">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Connection info
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-addon">GLN</span>
+            <input type="text" class="form-control" placeholder="GLN" name="gln" formControlName="gln">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Message</span>
+            <input type="text" class="form-control" placeholder="Message type" name="message" formControlName="message">
+          </div>
+        </div>
+      </div>
+
+      <!-- TP -->
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          TP information
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-addon">TP</span>
+            <select class="form-control" formControlName="tpName">
+              <option value='pending'>Creation in progress</option>
+              <option [value]="tp.tpName" *ngFor="let tp of tps">{{tp.tpName}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- X400 -->
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          X400 information
+        </div>
+        <div class="card-body">
+          <div class="input-group">
+            <span class="input-group-addon">TP</span>
+            <select class="form-control" formControlName="tpName">
+              <option value='pending'>Creation in progress</option>
+              <option [value]="tp.tpName" *ngFor="let tp of tps">{{tp.tpName}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end of card deck -->
+  </form>
+</div>
+
+private tp: TP; private x400: X400; private modate: Date; private credat: Date; private actif: boolean; private copy: string;
+private suppliers: Fournisseur[] = [];
