@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Edit connection</h2>
-  <form>
+  <form [formGroup]="connectionForm">
     <div class="card-deck">
       <div class="card">
         <div class="card-header bg-primary text-white">
@@ -15,6 +15,17 @@
             <span class="input-group-addon">Message</span>
             <input type="text" class="form-control" placeholder="Message type" name="message" formControlName="message">
           </div>
+          <div class="input-group">
+            <span class="input-group-addon">Active</span>
+            <select class="form-control" formControlName="actif">
+              <option value='1'>Yes</option>
+              <option value='0'>No</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Copy</span>
+            <input type="text" class="form-control" placeholder="Message type" name="copy" formControlName="copy">
+          </div>
         </div>
       </div>
 
@@ -26,34 +37,75 @@
         <div class="card-body">
           <div class="input-group">
             <span class="input-group-addon">TP</span>
-            <select class="form-control" formControlName="tpName">
+            <select class="form-control" formControlName="tpName" name="tpName">
               <option value='pending'>Creation in progress</option>
-              <option [value]="tp.tpName" *ngFor="let tp of tps">{{tp.tpName}}</option>
+              <option [value]="tp.tpName" *ngFor="let tp of tps" (change)="displayAS2()" >{{tp.tpName}}</option>
             </select>
+          </div>
+          <!-- AS2 -->
+          <div class="input-group" *ngIf="displayAS2()">
+            <span class="input-group-addon">AS2ID</span>
+            <input type="text" class="form-control" placeholder="AS2ID" name="as2id" formControlName="as2id">
+          </div>
+          <div class="input-group" *ngIf="displayAS2()">
+            <span class="input-group-addon">AS2URL</span>
+            <input type="text" class="form-control" placeholder="AS2 URL" name="as2url" formControlName="as2url">
+          </div>
+          <!-- X400 -->
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">C</span>
+            <input type="text" class="form-control" placeholder="c" name="c" formControlName="c">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">ADMD</span>
+            <input type="text" class="form-control" placeholder="ADMD" name="admd" formControlName="admd">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">PRMD</span>
+            <input type="text" class="form-control" placeholder="PRMD" name="prmd" formControlName="prmd">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">O</span>
+            <input type="text" class="form-control" placeholder="O" name="o" formControlName="o">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">OU1</span>
+            <input type="text" class="form-control" placeholder="OU1" name="ou1" formControlName="ou1">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">OU2</span>
+            <input type="text" class="form-control" placeholder="OU2" name="ou2" formControlName="ou2">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">OU1</span>
+            <input type="text" class="form-control" placeholder="OU3" name="ou3" formControlName="ou3">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">G</span>
+            <input type="text" class="form-control" placeholder="G" name="g" formControlName="g">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">I</span>
+            <input type="text" class="form-control" placeholder="I" name="i" formControlName="i">
+          </div>
+          <div class="input-group" *ngIf="!displayAS2()">
+            <span class="input-group-addon">S</span>
+            <input type="text" class="form-control" placeholder="S" name="s" formControlName="s">
           </div>
         </div>
       </div>
 
-      <!-- X400 -->
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          X400 information
-        </div>
-        <div class="card-body">
-          <div class="input-group">
-            <span class="input-group-addon">TP</span>
-            <select class="form-control" formControlName="tpName">
-              <option value='pending'>Creation in progress</option>
-              <option [value]="tp.tpName" *ngFor="let tp of tps">{{tp.tpName}}</option>
-            </select>
-          </div>
-        </div>
-      </div>
+
 
     </div>
     <!-- end of card deck -->
+    <br/>
+    <div class="btn-group d-flex" role="group" aria-label="Save">
+      <button type="button" (click)="onReset()" class="btn btn-error w-100">Reset <i class="fa fa-eraser" aria-hidden="true"></i></button>
+      <button type="button" (click)="onSave()" class="btn btn-success w-100">Save <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+      <button type="button" (click)="onSaveAndNew()" class="btn btn-warning w-100">Save and new <i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+    </div>
   </form>
 </div>
 
-private tp: TP; private x400: X400; private modate: Date; private credat: Date; private actif: boolean; private copy: string;
-private suppliers: Fournisseur[] = [];
+
